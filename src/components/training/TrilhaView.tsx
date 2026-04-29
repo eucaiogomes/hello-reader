@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import { PerformanceDashboard } from './PerformanceDashboard';
 import { MaterialExplorer } from './MaterialExplorer';
 import { TutorList } from './TutorList';
@@ -118,6 +119,8 @@ const MiniCircularProgress = ({ percentage, label, color = "var(--brand-color)" 
 };
 
 export const TrilhaView: React.FC<{ completedTrainings?: string[], onNavigateToTraining?: () => void }> = ({ completedTrainings = [], onNavigateToTraining }) => {
+  const navigate = useNavigate();
+  const goHome = () => navigate('/');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [activeTab, setActiveTab] = useState('descricao');
   const [isMobileFocusMode, setIsMobileFocusMode] = useState(false);

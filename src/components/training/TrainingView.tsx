@@ -20,6 +20,7 @@ import {
   LogOut
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import { SidebarContentIndicator, ContentTypeLabel } from './SidebarContentIndicator';
 import { PerformanceDashboard } from './PerformanceDashboard';
 import { MaterialExplorer } from './MaterialExplorer';
@@ -87,6 +88,8 @@ const MiniCircularProgress = ({ percentage, label, color = "var(--brand-color)" 
 };
 
 export default function TrainingView() {
+  const navigate = useNavigate();
+  const goHome = () => navigate('/');
   const [activeLessonId, setActiveLessonId] = useState<number | null>(2);
   const [activeTab, setActiveTab] = useState('descricao');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -370,14 +373,14 @@ export default function TrainingView() {
                 >
                   <Menu size={20} />
                 </button>
-                <button className="w-10 h-10 rounded-xl bg-brand text-white flex items-center justify-center hover:bg-brand-dark transition-all shadow-lg shadow-brand/20 cursor-pointer">
+                <button onClick={goHome} className="w-10 h-10 rounded-xl bg-brand text-white flex items-center justify-center hover:bg-brand-dark transition-all shadow-lg shadow-brand/20 cursor-pointer">
                   <ArrowLeft size={20} />
                 </button>
               </div>
             )}
             
             {isSidebarOpen && (
-              <button className="w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center hover:bg-brand-dark transition-all shadow-lg shadow-brand/20 cursor-pointer">
+              <button onClick={goHome} className="w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center hover:bg-brand-dark transition-all shadow-lg shadow-brand/20 cursor-pointer">
                 <ArrowLeft size={16} />
               </button>
             )}
