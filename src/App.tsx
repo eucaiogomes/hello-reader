@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import { 
   Search, 
   Bell, 
@@ -2019,11 +2020,18 @@ const ContentCard: React.FC<{ item: ContentItem, variant?: string }> = ({ item, 
   const isCompleto = category === 'completo';
   const isAvancado = category === 'avancado';
 
+  const navigate = useNavigate();
+  const handleOpen = () => {
+    const path = item.type === 'TRAIL' ? `/trilha/${item.id}` : `/treinamento/${item.id}`;
+    navigate(path);
+  };
+
   // --- Avançado 7 (Poster) Edge Case ---
   if (isAvancado && subVariant === '7') {
     return (
       <div className="group/card flex-shrink-0 w-[280px] h-[340px] relative rounded-2xl border border-slate-200/60 overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1"
            style={{ boxShadow: 'var(--shadow-subtle)' }}
+           onClick={handleOpen}
            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = 'var(--shadow-hover)')}
            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = 'var(--shadow-subtle)')}>
         <div className="absolute inset-0 bg-[#08204D]">
@@ -2054,6 +2062,7 @@ const ContentCard: React.FC<{ item: ContentItem, variant?: string }> = ({ item, 
     <div
       className="group/card flex-shrink-0 w-[280px] h-full bg-white rounded-2xl border border-slate-200/60 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:-translate-y-1"
       style={{ boxShadow: 'var(--shadow-subtle)' }}
+      onClick={handleOpen}
       onMouseEnter={(e) => (e.currentTarget.style.boxShadow = 'var(--shadow-hover)')}
       onMouseLeave={(e) => (e.currentTarget.style.boxShadow = 'var(--shadow-subtle)')}
     >
