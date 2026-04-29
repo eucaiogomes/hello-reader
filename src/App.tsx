@@ -2921,7 +2921,7 @@ export default function App() {
             >
               {layoutVersion === 1 ? <Hero /> : layoutVersion === 2 ? <HeroV2 /> : <HeroV3 />}
               <div className="bg-[#F7F9FC] py-12 border-t border-slate-200/70">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16">
                   <div className="flex flex-col lg:flex-row gap-8">
                     {/* Left Column: Content Sections */}
                     <div className="flex-1 overflow-hidden">
