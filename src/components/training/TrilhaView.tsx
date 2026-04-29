@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import { PerformanceDashboard } from './PerformanceDashboard';
 import { MaterialExplorer } from './MaterialExplorer';
 import { TutorList } from './TutorList';
@@ -118,6 +119,8 @@ const MiniCircularProgress = ({ percentage, label, color = "var(--brand-color)" 
 };
 
 export const TrilhaView: React.FC<{ completedTrainings?: string[], onNavigateToTraining?: () => void }> = ({ completedTrainings = [], onNavigateToTraining }) => {
+  const navigate = useNavigate();
+  const goHome = () => navigate('/');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [activeTab, setActiveTab] = useState('descricao');
   const [isMobileFocusMode, setIsMobileFocusMode] = useState(false);
@@ -354,7 +357,7 @@ export const TrilhaView: React.FC<{ completedTrainings?: string[], onNavigateToT
               >
                 <div className="flex items-center justify-between px-5 pt-12 pb-4 relative">
                   <button 
-                    onClick={() => window.history.back()}
+                    onClick={() => goHome()}
                     className="relative z-10 w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-white cursor-pointer hover:bg-white/20 transition-colors backdrop-blur-sm"
                   >
                     <ArrowLeft size={18} />
@@ -420,7 +423,7 @@ export const TrilhaView: React.FC<{ completedTrainings?: string[], onNavigateToT
                     <Menu size={20} className="stroke-[2.5px]" />
                   </button>
                   <button 
-                    onClick={() => window.history.back()}
+                    onClick={() => goHome()}
                     className="w-[42px] h-[42px] bg-brand text-white rounded-[14px] shadow-[0_4px_12px_rgba(204,0,0,0.3)] flex items-center justify-center cursor-pointer hover:bg-brand-dark transition-colors flex-shrink-0"
                   >
                     <ArrowLeft size={20} className="stroke-[2.5px]" />
@@ -442,14 +445,14 @@ export const TrilhaView: React.FC<{ completedTrainings?: string[], onNavigateToT
                 >
                   <Menu size={20} />
                 </button>
-                <button className="w-10 h-10 rounded-xl bg-brand text-white flex items-center justify-center hover:bg-brand-dark transition-all shadow-lg shadow-brand/20 cursor-pointer">
+                <button onClick={goHome} className="w-10 h-10 rounded-xl bg-brand text-white flex items-center justify-center hover:bg-brand-dark transition-all shadow-lg shadow-brand/20 cursor-pointer">
                   <ArrowLeft size={20} />
                 </button>
               </div>
             )}
             
             {isSidebarOpen && (
-              <button className="w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center hover:bg-brand-dark transition-all shadow-lg shadow-brand/20 cursor-pointer">
+              <button onClick={goHome} className="w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center hover:bg-brand-dark transition-all shadow-lg shadow-brand/20 cursor-pointer">
                 <ArrowLeft size={16} />
               </button>
             )}
