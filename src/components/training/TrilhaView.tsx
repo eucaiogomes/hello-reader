@@ -357,7 +357,7 @@ export const TrilhaView: React.FC<{ completedTrainings?: string[], onNavigateToT
               >
                 <div className="flex items-center justify-between px-5 pt-12 pb-4 relative">
                   <button 
-                    onClick={() => window.history.back()}
+                    onClick={() => goHome()}
                     className="relative z-10 w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-white cursor-pointer hover:bg-white/20 transition-colors backdrop-blur-sm"
                   >
                     <ArrowLeft size={18} />
@@ -423,7 +423,7 @@ export const TrilhaView: React.FC<{ completedTrainings?: string[], onNavigateToT
                     <Menu size={20} className="stroke-[2.5px]" />
                   </button>
                   <button 
-                    onClick={() => window.history.back()}
+                    onClick={() => goHome()}
                     className="w-[42px] h-[42px] bg-brand text-white rounded-[14px] shadow-[0_4px_12px_rgba(204,0,0,0.3)] flex items-center justify-center cursor-pointer hover:bg-brand-dark transition-colors flex-shrink-0"
                   >
                     <ArrowLeft size={20} className="stroke-[2.5px]" />
