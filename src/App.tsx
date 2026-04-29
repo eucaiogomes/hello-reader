@@ -2913,8 +2913,7 @@ const ThemeSwitcher = ({
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('Conteúdo');
-  const [showSocialSidebar, setShowSocialSidebar] = useState(true);
-  const [layoutVersion, setLayoutVersion] = useState(1);
+  const [showSocialSidebar] = useState(true);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -2928,7 +2927,7 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              {layoutVersion === 1 ? <Hero /> : layoutVersion === 2 ? <HeroV2 /> : <HeroV3 />}
+              <Hero />
               <div className="bg-[#F7F9FC] py-12 border-t border-slate-200/70">
                 <div className="max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16">
                   <div className="flex flex-col lg:flex-row gap-8">
@@ -2973,38 +2972,9 @@ export default function App() {
             </motion.div>
           )}
 
-          {activeTab === 'Design System' && (
-            <motion.div
-              key="design-system"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <DesignSystemView />
-            </motion.div>
-          )}
-
-          {activeTab === 'Construtor de Cards' && (
-            <motion.div
-              key="construtor"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <CardBuilderView />
-            </motion.div>
-          )}
         </AnimatePresence>
       </main>
       <Footer />
-      <ThemeSwitcher 
-        showSocial={showSocialSidebar} 
-        onToggleSocial={() => setShowSocialSidebar(!showSocialSidebar)} 
-        layoutVersion={layoutVersion}
-        onToggleLayout={setLayoutVersion}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-      />
     </div>
   );
 }
