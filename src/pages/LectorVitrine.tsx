@@ -15,6 +15,7 @@ import thumbOmnichannel from '../assets/lector/thumb-omnichannel.jpg';
 import thumbAutomation from '../assets/lector/thumb-automation.jpg';
 import thumbDashboard from '../assets/lector/thumb-dashboard.jpg';
 import thumbContinueAi from '../assets/lector/thumb-continue-ai.jpg';
+import logoLector from '../assets/logo-lector.svg';
 
 // ---------- MOCK DATA ----------
 const NAV_ITEMS = ['Explorar', 'Trilhas', 'Meus cursos', 'Suporte', 'Sobre a Lector'];
@@ -89,12 +90,9 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 bg-[#041433]/85 backdrop-blur-xl border-b border-white/10">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-20 flex items-center gap-8">
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-[0_8px_24px_rgba(255,122,26,0.35)]">
-            <span className="text-white font-display font-extrabold text-lg leading-none">L</span>
-          </div>
-          <span className="font-display font-extrabold text-white tracking-wide text-lg">LECTOR</span>
-        </div>
+        <a href="/" className="flex items-center">
+          <img src={logoLector} alt="Lector" className="h-9 w-auto" />
+        </a>
 
         <nav className="hidden lg:flex items-center gap-1 ml-4">
           {NAV_ITEMS.map((item, i) => (
