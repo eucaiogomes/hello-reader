@@ -53,6 +53,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import heroYoungProfessional from './assets/hero-young-professional.jpg';
+import logoLector from './assets/logo-lector.svg';
 import course01 from './assets/lector/courses/c01-ai-business.jpg';
 import course02 from './assets/lector/courses/c02-chatgpt-productivity.jpg';
 import course03 from './assets/lector/courses/c03-automation-ai.jpg';
@@ -274,8 +275,7 @@ const Navbar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: 
           {/* LOGO - Left aligned */}
           <div className="flex items-center flex-1">
             <div className="flex-shrink-0 flex items-center cursor-pointer group" onClick={() => setActiveTab('Conteúdo')}>
-              <div className="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-200">L</div>
-              <span className="ml-3 font-display font-bold text-xl text-brand-secondary hidden sm:block tracking-tight">LECTOR</span>
+              <img src={logoLector} alt="Lector" className="h-10 w-auto group-hover:scale-105 transition-transform duration-200" />
             </div>
           </div>
           
