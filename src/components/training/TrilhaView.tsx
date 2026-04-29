@@ -445,14 +445,14 @@ export const TrilhaView: React.FC<{ completedTrainings?: string[], onNavigateToT
                 >
                   <Menu size={20} />
                 </button>
-                <button className="w-10 h-10 rounded-xl bg-brand text-white flex items-center justify-center hover:bg-brand-dark transition-all shadow-lg shadow-brand/20 cursor-pointer">
+                <button onClick={goHome} className="w-10 h-10 rounded-xl bg-brand text-white flex items-center justify-center hover:bg-brand-dark transition-all shadow-lg shadow-brand/20 cursor-pointer">
                   <ArrowLeft size={20} />
                 </button>
               </div>
             )}
             
             {isSidebarOpen && (
-              <button className="w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center hover:bg-brand-dark transition-all shadow-lg shadow-brand/20 cursor-pointer">
+              <button onClick={goHome} className="w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center hover:bg-brand-dark transition-all shadow-lg shadow-brand/20 cursor-pointer">
                 <ArrowLeft size={16} />
               </button>
             )}
